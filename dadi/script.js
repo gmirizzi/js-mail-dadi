@@ -1,12 +1,16 @@
-const dadoUser = parseInt(Math.random() * 6 + 1);
-console.log('User:'+dadoUser)
 const dadoCPU = parseInt(Math.random() * 6 + 1);
-console.log('CPU:'+dadoCPU)
+document.getElementById('cpu').innerHTML = 'CPU ha lanciato il dado:' + dadoCPU;
+document.querySelector('button').addEventListener('click', function(){
+    const dadoUser = parseInt(Math.random() * 6 + 1);
+    document.getElementById('user').innerHTML = 'Hai lanciato il dado:' + dadoUser;
+    
+    if (dadoUser==dadoCPU){
+        document.getElementById('result').innerHTML = 'DRAW';
+    } else if (dadoUser>dadoCPU) {
+        document.getElementById('result').innerHTML = 'YOU WIN!';
+    } else {
+        document.getElementById('result').innerHTML = 'CPU wins :(';
+    }
 
-if (dadoUser==dadoCPU){
-    console.log('draw');
-} else if (dadoUser>dadoCPU) {
-    console.log('user wins');
-} else {
-    console.log('CPU wins');
-}
+})
+
